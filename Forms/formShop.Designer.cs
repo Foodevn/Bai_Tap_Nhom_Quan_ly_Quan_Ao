@@ -33,12 +33,6 @@
 			this.btnXoaBoLoc = new System.Windows.Forms.Button();
 			this.btnTaiLaiDanhSach = new System.Windows.Forms.Button();
 			this.lvDS = new System.Windows.Forms.ListView();
-			this.clhMaHang = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-			this.clhTenHang = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-			this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-			this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-			this.clhGiaBan = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-			this.clhSoLuong = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
 			this.groupBox2 = new System.Windows.Forms.GroupBox();
 			this.lvChiTietDonhang = new System.Windows.Forms.ListView();
 			this.clh_MaHang = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -77,11 +71,18 @@
 			this.label3 = new System.Windows.Forms.Label();
 			this.label2 = new System.Windows.Forms.Label();
 			this.groupBox4 = new System.Windows.Forms.GroupBox();
-			this.cbMau = new System.Windows.Forms.ComboBox();
+			this.cbbSize = new System.Windows.Forms.ComboBox();
+			this.cbbMau = new System.Windows.Forms.ComboBox();
 			this.label13 = new System.Windows.Forms.Label();
 			this.label12 = new System.Windows.Forms.Label();
 			this.label1 = new System.Windows.Forms.Label();
-			this.checkedListBoxSize = new System.Windows.Forms.CheckedListBox();
+			this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+			this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+			this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+			this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+			this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+			this.columnHeader8 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+			this.btnHuyBo = new System.Windows.Forms.Button();
 			this.groupBox2.SuspendLayout();
 			this.groupBox3.SuspendLayout();
 			this.groupBox1.SuspendLayout();
@@ -132,58 +133,27 @@
 			// lvDS
 			// 
 			this.lvDS.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.clhMaHang,
-            this.clhTenHang,
-            this.columnHeader2,
-            this.columnHeader1,
-            this.clhGiaBan,
-            this.clhSoLuong});
+            this.columnHeader3,
+            this.columnHeader4,
+            this.columnHeader5,
+            this.columnHeader6,
+            this.columnHeader7,
+            this.columnHeader8});
+			this.lvDS.FullRowSelect = true;
 			this.lvDS.GridLines = true;
 			this.lvDS.HideSelection = false;
-			this.lvDS.Location = new System.Drawing.Point(9, 164);
+			this.lvDS.Location = new System.Drawing.Point(9, 133);
 			this.lvDS.Name = "lvDS";
-			this.lvDS.Size = new System.Drawing.Size(422, 482);
+			this.lvDS.Size = new System.Drawing.Size(412, 513);
 			this.lvDS.TabIndex = 6;
 			this.lvDS.UseCompatibleStateImageBehavior = false;
 			this.lvDS.View = System.Windows.Forms.View.Details;
-			// 
-			// clhMaHang
-			// 
-			this.clhMaHang.Text = "Mã Hàng";
-			this.clhMaHang.Width = 69;
-			// 
-			// clhTenHang
-			// 
-			this.clhTenHang.Text = "Tên Hàng";
-			this.clhTenHang.Width = 125;
-			// 
-			// columnHeader2
-			// 
-			this.columnHeader2.DisplayIndex = 5;
-			this.columnHeader2.Text = "Màu";
-			// 
-			// columnHeader1
-			// 
-			this.columnHeader1.DisplayIndex = 4;
-			this.columnHeader1.Text = "Size";
-			// 
-			// clhGiaBan
-			// 
-			this.clhGiaBan.DisplayIndex = 2;
-			this.clhGiaBan.Text = "Giá giảm";
-			this.clhGiaBan.Width = 71;
-			// 
-			// clhSoLuong
-			// 
-			this.clhSoLuong.DisplayIndex = 3;
-			this.clhSoLuong.Text = "SL";
-			this.clhSoLuong.Width = 50;
 			// 
 			// groupBox2
 			// 
 			this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
 			this.groupBox2.Controls.Add(this.lvChiTietDonhang);
-			this.groupBox2.Location = new System.Drawing.Point(452, 91);
+			this.groupBox2.Location = new System.Drawing.Point(455, 91);
 			this.groupBox2.Name = "groupBox2";
 			this.groupBox2.Size = new System.Drawing.Size(624, 310);
 			this.groupBox2.TabIndex = 8;
@@ -251,6 +221,7 @@
 			this.groupBox3.Controls.Add(this.lbl_Tongtien);
 			this.groupBox3.Controls.Add(this.btnLoadDon);
 			this.groupBox3.Controls.Add(this.btnLuuIn);
+			this.groupBox3.Controls.Add(this.btnHuyBo);
 			this.groupBox3.Controls.Add(this.btnLamMoi);
 			this.groupBox3.Controls.Add(this.txtGhiChu);
 			this.groupBox3.Controls.Add(this.txtTongThanhToan);
@@ -267,9 +238,9 @@
 			this.groupBox3.Controls.Add(this.label7);
 			this.groupBox3.Controls.Add(this.label6);
 			this.groupBox3.Controls.Add(this.label5);
-			this.groupBox3.Location = new System.Drawing.Point(455, 431);
+			this.groupBox3.Location = new System.Drawing.Point(458, 422);
 			this.groupBox3.Name = "groupBox3";
-			this.groupBox3.Size = new System.Drawing.Size(621, 239);
+			this.groupBox3.Size = new System.Drawing.Size(621, 248);
 			this.groupBox3.TabIndex = 9;
 			this.groupBox3.TabStop = false;
 			this.groupBox3.Text = "Tổng kết hóa đơn";
@@ -475,9 +446,9 @@
 			this.groupBox1.Controls.Add(this.label4);
 			this.groupBox1.Controls.Add(this.label3);
 			this.groupBox1.Controls.Add(this.label2);
-			this.groupBox1.Location = new System.Drawing.Point(455, 5);
+			this.groupBox1.Location = new System.Drawing.Point(454, 5);
 			this.groupBox1.Name = "groupBox1";
-			this.groupBox1.Size = new System.Drawing.Size(615, 80);
+			this.groupBox1.Size = new System.Drawing.Size(625, 80);
 			this.groupBox1.TabIndex = 7;
 			this.groupBox1.TabStop = false;
 			this.groupBox1.Text = "Thông Tin Khách Hàng";
@@ -536,42 +507,59 @@
 			// 
 			// groupBox4
 			// 
-			this.groupBox4.Controls.Add(this.cbMau);
+			this.groupBox4.Controls.Add(this.cbbSize);
+			this.groupBox4.Controls.Add(this.cbbMau);
 			this.groupBox4.Controls.Add(this.label13);
 			this.groupBox4.Controls.Add(this.label12);
 			this.groupBox4.Controls.Add(this.label1);
 			this.groupBox4.Controls.Add(this.lvDS);
-			this.groupBox4.Controls.Add(this.checkedListBoxSize);
 			this.groupBox4.Controls.Add(this.txtTimKiem);
 			this.groupBox4.Controls.Add(this.btnTaiLaiDanhSach);
 			this.groupBox4.Controls.Add(this.btnTimKiem);
 			this.groupBox4.Controls.Add(this.btnXoaBoLoc);
 			this.groupBox4.Location = new System.Drawing.Point(6, 5);
 			this.groupBox4.Name = "groupBox4";
-			this.groupBox4.Size = new System.Drawing.Size(440, 665);
+			this.groupBox4.Size = new System.Drawing.Size(442, 665);
 			this.groupBox4.TabIndex = 10;
 			this.groupBox4.TabStop = false;
 			this.groupBox4.Text = "Lọc và Tìm";
 			// 
-			// cbMau
+			// cbbSize
 			// 
-			this.cbMau.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-			this.cbMau.FormattingEnabled = true;
-			this.cbMau.Items.AddRange(new object[] {
+			this.cbbSize.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+			this.cbbSize.FormattingEnabled = true;
+			this.cbbSize.Items.AddRange(new object[] {
             "none",
             "xanh",
             "đỏ",
             "tím",
             "vàng"});
-			this.cbMau.Location = new System.Drawing.Point(58, 53);
-			this.cbMau.Name = "cbMau";
-			this.cbMau.Size = new System.Drawing.Size(121, 24);
-			this.cbMau.TabIndex = 9;
+			this.cbbSize.Location = new System.Drawing.Point(113, 85);
+			this.cbbSize.Name = "cbbSize";
+			this.cbbSize.Size = new System.Drawing.Size(121, 24);
+			this.cbbSize.TabIndex = 9;
+			this.cbbSize.SelectedIndexChanged += new System.EventHandler(this.cbbSize_SelectedIndexChanged);
+			// 
+			// cbbMau
+			// 
+			this.cbbMau.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+			this.cbbMau.FormattingEnabled = true;
+			this.cbbMau.Items.AddRange(new object[] {
+            "none",
+            "xanh",
+            "đỏ",
+            "tím",
+            "vàng"});
+			this.cbbMau.Location = new System.Drawing.Point(112, 50);
+			this.cbbMau.Name = "cbbMau";
+			this.cbbMau.Size = new System.Drawing.Size(156, 24);
+			this.cbbMau.TabIndex = 9;
+			this.cbbMau.SelectedIndexChanged += new System.EventHandler(this.cbbMau_SelectedIndexChanged);
 			// 
 			// label13
 			// 
 			this.label13.AutoSize = true;
-			this.label13.Location = new System.Drawing.Point(6, 54);
+			this.label13.Location = new System.Drawing.Point(62, 56);
 			this.label13.Name = "label13";
 			this.label13.Size = new System.Drawing.Size(33, 16);
 			this.label13.TabIndex = 8;
@@ -580,7 +568,7 @@
 			// label12
 			// 
 			this.label12.AutoSize = true;
-			this.label12.Location = new System.Drawing.Point(6, 86);
+			this.label12.Location = new System.Drawing.Point(62, 90);
 			this.label12.Name = "label12";
 			this.label12.Size = new System.Drawing.Size(33, 16);
 			this.label12.TabIndex = 8;
@@ -595,31 +583,54 @@
 			this.label1.TabIndex = 7;
 			this.label1.Text = "Mã Hoặc Tên";
 			// 
-			// checkedListBoxSize
+			// columnHeader3
 			// 
-			this.checkedListBoxSize.FormattingEnabled = true;
-			this.checkedListBoxSize.Items.AddRange(new object[] {
-            "M",
-            "L",
-            "XL",
-            "XXL"});
-			this.checkedListBoxSize.Location = new System.Drawing.Point(58, 86);
-			this.checkedListBoxSize.Name = "checkedListBoxSize";
-			this.checkedListBoxSize.Size = new System.Drawing.Size(96, 72);
-			this.checkedListBoxSize.TabIndex = 6;
+			this.columnHeader3.Text = "Mã hàng";
+			// 
+			// columnHeader4
+			// 
+			this.columnHeader4.Text = "Tên hàng";
+			// 
+			// columnHeader5
+			// 
+			this.columnHeader5.Text = "Giá bán";
+			// 
+			// columnHeader6
+			// 
+			this.columnHeader6.Text = "Số Lượng";
+			// 
+			// columnHeader7
+			// 
+			this.columnHeader7.Text = "Màu Sắc";
+			// 
+			// columnHeader8
+			// 
+			this.columnHeader8.Text = "Size";
+			// 
+			// btnHuyBo
+			// 
+			this.btnHuyBo.BackColor = System.Drawing.SystemColors.Control;
+			this.btnHuyBo.Location = new System.Drawing.Point(224, 209);
+			this.btnHuyBo.Name = "btnHuyBo";
+			this.btnHuyBo.Size = new System.Drawing.Size(75, 23);
+			this.btnHuyBo.TabIndex = 3;
+			this.btnHuyBo.Text = "Hủy bỏ";
+			this.btnHuyBo.UseVisualStyleBackColor = false;
+			this.btnHuyBo.Click += new System.EventHandler(this.btnHuyBo_Click);
 			// 
 			// formShop
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-			this.ClientSize = new System.Drawing.Size(1085, 682);
+			this.ClientSize = new System.Drawing.Size(1088, 682);
 			this.Controls.Add(this.groupBox4);
 			this.Controls.Add(this.groupBox1);
 			this.Controls.Add(this.groupBox3);
 			this.Controls.Add(this.groupBox2);
 			this.Name = "formShop";
 			this.Text = "Shop";
+			this.Load += new System.EventHandler(this.formShop_Load);
 			this.groupBox2.ResumeLayout(false);
 			this.groupBox3.ResumeLayout(false);
 			this.groupBox3.PerformLayout();
@@ -637,10 +648,6 @@
 		private System.Windows.Forms.Button btnXoaBoLoc;
 		private System.Windows.Forms.Button btnTaiLaiDanhSach;
 		private System.Windows.Forms.ListView lvDS;
-		private System.Windows.Forms.ColumnHeader clhMaHang;
-		private System.Windows.Forms.ColumnHeader clhTenHang;
-		private System.Windows.Forms.ColumnHeader clhGiaBan;
-		private System.Windows.Forms.ColumnHeader clhSoLuong;
 		private System.Windows.Forms.GroupBox groupBox2;
 		private System.Windows.Forms.ListView lvChiTietDonhang;
 		private System.Windows.Forms.ColumnHeader clh_MaHang;
@@ -668,8 +675,6 @@
 		private System.Windows.Forms.Button btnLamMoi;
 		private System.Windows.Forms.TextBox txtGhiChu;
 		private System.Windows.Forms.Label lbl_Tongtien;
-		private System.Windows.Forms.ColumnHeader columnHeader2;
-		private System.Windows.Forms.ColumnHeader columnHeader1;
 		private System.Windows.Forms.GroupBox groupBox1;
 		private System.Windows.Forms.MaskedTextBox mtbSDT;
 		private System.Windows.Forms.TextBox txtHoTen;
@@ -678,14 +683,21 @@
 		private System.Windows.Forms.Label label3;
 		private System.Windows.Forms.Label label2;
 		private System.Windows.Forms.GroupBox groupBox4;
-		private System.Windows.Forms.CheckedListBox checkedListBoxSize;
 		private System.Windows.Forms.Label label1;
 		private System.Windows.Forms.Label label12;
-		private System.Windows.Forms.ComboBox cbMau;
+		private System.Windows.Forms.ComboBox cbbMau;
 		private System.Windows.Forms.Label label13;
 		private System.Windows.Forms.Button btnLoadDon;
 		private System.Windows.Forms.ComboBox cbTrangThai;
 		private System.Windows.Forms.Label label14;
+		private System.Windows.Forms.ComboBox cbbSize;
+		private System.Windows.Forms.ColumnHeader columnHeader3;
+		private System.Windows.Forms.ColumnHeader columnHeader4;
+		private System.Windows.Forms.ColumnHeader columnHeader5;
+		private System.Windows.Forms.ColumnHeader columnHeader6;
+		private System.Windows.Forms.ColumnHeader columnHeader7;
+		private System.Windows.Forms.ColumnHeader columnHeader8;
+		private System.Windows.Forms.Button btnHuyBo;
 	}
 }
 

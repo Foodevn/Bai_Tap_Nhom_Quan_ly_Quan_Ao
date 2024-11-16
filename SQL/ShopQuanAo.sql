@@ -516,7 +516,7 @@ END
 go
 delete from MauSac
 select * from MauSac
-exec SanPham_InsertUpdateDelete 'SP001', N'Áo Thun', 200000, 100, 'NCC01', 'MS01', 'S01','AOT', N'Áo thun nam', 1,0;
+--exec SanPham_InsertUpdateDelete 'SP001', N'Áo Thun', 200000, 100, 'NCC01', 'MS01', 'S01','AOT', N'Áo thun nam', 1,0;
 go
 
 
@@ -665,6 +665,6 @@ select * from KhachHang
 select * from NhanVien
 select * from PhieuNhapHang
 select * from ChiTietPhieuNhap
-
+select * from NhomMatHang
 
 go

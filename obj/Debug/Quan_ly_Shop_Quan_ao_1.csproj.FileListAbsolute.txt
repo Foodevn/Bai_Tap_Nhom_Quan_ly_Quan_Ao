@@ -154,3 +154,31 @@ C:\Users\Quang\Downloads\Bai_Tap_Nhom_desktop-2--master (3)\Bai_Tap_Nhom_desktop
 C:\Users\Quang\Downloads\Bai_Tap_Nhom_desktop-2--master (3)\Bai_Tap_Nhom_desktop-2--master\obj\Debug\Quan_ly_Shop_Quan_ao_1.csproj.CopyComplete
 C:\Users\Quang\Downloads\Bai_Tap_Nhom_desktop-2--master (3)\Bai_Tap_Nhom_desktop-2--master\obj\Debug\Quan_ly_Shop_Quan_ao_1.exe
 C:\Users\Quang\Downloads\Bai_Tap_Nhom_desktop-2--master (3)\Bai_Tap_Nhom_desktop-2--master\obj\Debug\Quan_ly_Shop_Quan_ao_1.pdb
+C:\Users\hoang\source\repos\Bai_Tap_Nhom_desktop-2--master\bin\Debug\Quan_ly_Shop_Quan_ao_1.exe.config
+C:\Users\hoang\source\repos\Bai_Tap_Nhom_desktop-2--master\bin\Debug\Quan_ly_Shop_Quan_ao_1.exe
+C:\Users\hoang\source\repos\Bai_Tap_Nhom_desktop-2--master\bin\Debug\Quan_ly_Shop_Quan_ao_1.pdb
+C:\Users\hoang\source\repos\Bai_Tap_Nhom_desktop-2--master\bin\Debug\BusinessLog.dll
+C:\Users\hoang\source\repos\Bai_Tap_Nhom_desktop-2--master\bin\Debug\DataAccess.dll
+C:\Users\hoang\source\repos\Bai_Tap_Nhom_desktop-2--master\bin\Debug\BusinessLog.pdb
+C:\Users\hoang\source\repos\Bai_Tap_Nhom_desktop-2--master\bin\Debug\DataAccess.pdb
+C:\Users\hoang\source\repos\Bai_Tap_Nhom_desktop-2--master\obj\Debug\Quan_ly_Shop_Quan_ao_1.csproj.AssemblyReference.cache
+C:\Users\hoang\source\repos\Bai_Tap_Nhom_desktop-2--master\obj\Debug\Chitietphieunhau.FormBaoCaoDanhThu.resources
+C:\Users\hoang\source\repos\Bai_Tap_Nhom_desktop-2--master\obj\Debug\Chitietphieunhau.FormChitietphieunhap.resources
+C:\Users\hoang\source\repos\Bai_Tap_Nhom_desktop-2--master\obj\Debug\Quan_ly_Shop_Quan_ao_1.formDangNhap.resources
+C:\Users\hoang\source\repos\Bai_Tap_Nhom_desktop-2--master\obj\Debug\Chitietphieunhau.FormDanhMucHangSapHet.resources
+C:\Users\hoang\source\repos\Bai_Tap_Nhom_desktop-2--master\obj\Debug\Chitietphieunhau.FormQuanLyTaiKhoanNguoiDung.resources
+C:\Users\hoang\source\repos\Bai_Tap_Nhom_desktop-2--master\obj\Debug\quan_ly_shop_quan_ao.formShop.resources
+C:\Users\hoang\source\repos\Bai_Tap_Nhom_desktop-2--master\obj\Debug\XemLaiHoaDon.FrmXemDSHang.resources
+C:\Users\hoang\source\repos\Bai_Tap_Nhom_desktop-2--master\obj\Debug\XemLaiHoaDon.FrmXemLai.resources
+C:\Users\hoang\source\repos\Bai_Tap_Nhom_desktop-2--master\obj\Debug\XemLaiHoaDon.FrmXemLaiHoaDon.resources
+C:\Users\hoang\source\repos\Bai_Tap_Nhom_desktop-2--master\obj\Debug\quanlyshopquanao.Lapphieunhaphangmoi.resources
+C:\Users\hoang\source\repos\Bai_Tap_Nhom_desktop-2--master\obj\Debug\Quan_ly_Shop_Quan_ao_1.menu.resources
+C:\Users\hoang\source\repos\Bai_Tap_Nhom_desktop-2--master\obj\Debug\Quan_ly_Shop_Quan_ao_1.Properties.Resources.resources
+C:\Users\hoang\source\repos\Bai_Tap_Nhom_desktop-2--master\obj\Debug\Quan_ly_Shop_Quan_ao_1.test.resources
+C:\Users\hoang\source\repos\Bai_Tap_Nhom_desktop-2--master\obj\Debug\quanlyshopquanao.Themmathangmoi.resources
+C:\Users\hoang\source\repos\Bai_Tap_Nhom_desktop-2--master\obj\Debug\quanlyshopquanao.Xemlaiphieunhaphang.resources
+C:\Users\hoang\source\repos\Bai_Tap_Nhom_desktop-2--master\obj\Debug\Quan_ly_Shop_Quan_ao_1.csproj.GenerateResource.cache
+C:\Users\hoang\source\repos\Bai_Tap_Nhom_desktop-2--master\obj\Debug\Quan_ly_Shop_Quan_ao_1.csproj.CoreCompileInputs.cache
+C:\Users\hoang\source\repos\Bai_Tap_Nhom_desktop-2--master\obj\Debug\Quan_ly_.1E3C3D8E.Up2Date
+C:\Users\hoang\source\repos\Bai_Tap_Nhom_desktop-2--master\obj\Debug\Quan_ly_Shop_Quan_ao_1.exe
+C:\Users\hoang\source\repos\Bai_Tap_Nhom_desktop-2--master\obj\Debug\Quan_ly_Shop_Quan_ao_1.pdb

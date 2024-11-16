@@ -16,3 +16,12 @@ C:\Users\Quang\Downloads\Bai_Tap_Nhom_desktop-2--master (3)\Bai_Tap_Nhom_desktop
 C:\Users\Quang\Downloads\Bai_Tap_Nhom_desktop-2--master (3)\Bai_Tap_Nhom_desktop-2--master\BusinessLog\obj\Debug\BusinessLog.csproj.CopyComplete
 C:\Users\Quang\Downloads\Bai_Tap_Nhom_desktop-2--master (3)\Bai_Tap_Nhom_desktop-2--master\BusinessLog\obj\Debug\BusinessLog.dll
 C:\Users\Quang\Downloads\Bai_Tap_Nhom_desktop-2--master (3)\Bai_Tap_Nhom_desktop-2--master\BusinessLog\obj\Debug\BusinessLog.pdb
+C:\Users\hoang\source\repos\Bai_Tap_Nhom_desktop-2--master\BusinessLog\bin\Debug\BusinessLog.dll
+C:\Users\hoang\source\repos\Bai_Tap_Nhom_desktop-2--master\BusinessLog\bin\Debug\BusinessLog.pdb
+C:\Users\hoang\source\repos\Bai_Tap_Nhom_desktop-2--master\BusinessLog\bin\Debug\DataAccess.dll
+C:\Users\hoang\source\repos\Bai_Tap_Nhom_desktop-2--master\BusinessLog\bin\Debug\DataAccess.pdb
+C:\Users\hoang\source\repos\Bai_Tap_Nhom_desktop-2--master\BusinessLog\obj\Debug\BusinessLog.csproj.AssemblyReference.cache
+C:\Users\hoang\source\repos\Bai_Tap_Nhom_desktop-2--master\BusinessLog\obj\Debug\BusinessLog.csproj.CoreCompileInputs.cache
+C:\Users\hoang\source\repos\Bai_Tap_Nhom_desktop-2--master\BusinessLog\obj\Debug\Business.F5BB8BF2.Up2Date
+C:\Users\hoang\source\repos\Bai_Tap_Nhom_desktop-2--master\BusinessLog\obj\Debug\BusinessLog.dll
+C:\Users\hoang\source\repos\Bai_Tap_Nhom_desktop-2--master\BusinessLog\obj\Debug\BusinessLog.pdb

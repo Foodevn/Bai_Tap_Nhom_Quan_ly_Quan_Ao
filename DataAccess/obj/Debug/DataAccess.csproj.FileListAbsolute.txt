@@ -10,3 +10,9 @@ C:\Users\Quang\Downloads\Bai_Tap_Nhom_desktop-2--master (3)\Bai_Tap_Nhom_desktop
 C:\Users\Quang\Downloads\Bai_Tap_Nhom_desktop-2--master (3)\Bai_Tap_Nhom_desktop-2--master\DataAccess\obj\Debug\DataAccess.csproj.CoreCompileInputs.cache
 C:\Users\Quang\Downloads\Bai_Tap_Nhom_desktop-2--master (3)\Bai_Tap_Nhom_desktop-2--master\DataAccess\obj\Debug\DataAccess.dll
 C:\Users\Quang\Downloads\Bai_Tap_Nhom_desktop-2--master (3)\Bai_Tap_Nhom_desktop-2--master\DataAccess\obj\Debug\DataAccess.pdb
+C:\Users\hoang\source\repos\Bai_Tap_Nhom_desktop-2--master\DataAccess\bin\Debug\DataAccess.dll
+C:\Users\hoang\source\repos\Bai_Tap_Nhom_desktop-2--master\DataAccess\bin\Debug\DataAccess.pdb
+C:\Users\hoang\source\repos\Bai_Tap_Nhom_desktop-2--master\DataAccess\obj\Debug\DataAccess.csproj.AssemblyReference.cache
+C:\Users\hoang\source\repos\Bai_Tap_Nhom_desktop-2--master\DataAccess\obj\Debug\DataAccess.csproj.CoreCompileInputs.cache
+C:\Users\hoang\source\repos\Bai_Tap_Nhom_desktop-2--master\DataAccess\obj\Debug\DataAccess.dll
+C:\Users\hoang\source\repos\Bai_Tap_Nhom_desktop-2--master\DataAccess\obj\Debug\DataAccess.pdb
