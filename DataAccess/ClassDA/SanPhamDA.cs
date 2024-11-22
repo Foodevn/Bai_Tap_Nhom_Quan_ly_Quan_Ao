@@ -25,7 +25,8 @@ namespace DataAccess.ClassDA
                 SanPham sanPham = new SanPham();
                 sanPham.MaSP = reader["MaSP"].ToString();
                 sanPham.TenSP = reader["TenSP"].ToString();
-                sanPham.GiaBan = Convert.ToInt32(reader["GiaBan"]);
+                sanPham.GiaBan = Convert.ToSingle(reader["GiaBan"]);
+                sanPham.GiamGia = Convert.ToSingle(reader["GiamGia"]);
                 sanPham.SLTon = Convert.ToInt32(reader["SLTon"]);
                 sanPham.NhaCungCap = reader["NhaCungCap"].ToString();
                 sanPham.IDMau = reader["IDMau"].ToString();
@@ -52,7 +53,8 @@ namespace DataAccess.ClassDA
 
             command.Parameters.Add(IDPara).Value = sanPham.MaSP;
             command.Parameters.Add("@TenSP", SqlDbType.NVarChar, 35) .Value = sanPham.TenSP;
-            command.Parameters.Add("@GiaBan", SqlDbType.Int) .Value = sanPham.GiaBan;
+            command.Parameters.Add("@GiaBan", SqlDbType.Float) .Value = sanPham.GiaBan;
+            command.Parameters.Add("@GiamGia", SqlDbType.Float) .Value = sanPham.GiaBan;
             command.Parameters.Add("@SLTon", SqlDbType.Int).Value = sanPham.SLTon;
             command.Parameters.Add("@NhaCungCap", SqlDbType.NVarChar, 35).Value = sanPham.NhaCungCap;
             command.Parameters.Add("@IDMau", SqlDbType.NVarChar, 10).Value = sanPham.IDMau;

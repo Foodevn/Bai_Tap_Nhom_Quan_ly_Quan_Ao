@@ -37,7 +37,7 @@ namespace DataAccess.ClassDA
 			sqlConn.Close();
 			return list;
 		}
-		public int Insert_Update_Delete(KhachHang khachHang, int action)
+		public string Insert_Update_Delete(KhachHang khachHang, int action)
 		{
 
 			SqlConnection sqlConn = new SqlConnection(Ultilities.ConnectionString);
@@ -60,8 +60,8 @@ namespace DataAccess.ClassDA
 
 			int result = command.ExecuteNonQuery();
 			if (result > 0)
-				return (int)command.Parameters["@maKhachHang"].Value;
-			return 0;
+				return (string)command.Parameters["@maKhachHang"].Value;
+			return "";
 		}
 	}
 }

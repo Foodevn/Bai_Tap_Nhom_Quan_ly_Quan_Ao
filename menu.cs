@@ -20,6 +20,7 @@ namespace Quan_ly_Shop_Quan_ao_1
 		private Random random;
 		private int tempIndex;
 		private Form activeForm;
+	
 		public menu()
 		{
 
@@ -27,6 +28,7 @@ namespace Quan_ly_Shop_Quan_ao_1
 			random = new Random();
 			btnCloseChildForm.Visible = false;
 			
+
 		}
 
 		//Constructor
@@ -74,7 +76,6 @@ namespace Quan_ly_Shop_Quan_ao_1
 		}
 
 		#endregion
-
 		#region
 		private Color SelectThemeColor()
 		{
@@ -143,7 +144,8 @@ namespace Quan_ly_Shop_Quan_ao_1
 			if (activeForm != null)
 				activeForm.Close();
 			Reset();
-			LoadChildForm(new formDangNhap());
+			panelDesktop.Controls.Clear()  ;
+			//LoadChildForm(new formDangNhap());
 		}
 		private void btnThoat_Click(object sender, EventArgs e)
 		{

@@ -15,15 +15,15 @@ namespace BusinessLog
         {
             return HoaDonDA.GetAll();
         }
-        public int Insert(HoaDon hoaDon)
+        public string Insert(HoaDon hoaDon)
         {
             return HoaDonDA.Insert_Update_Delete(hoaDon, 0);
         }
-        public int Update(HoaDon hoaDon)
+        public string Update(HoaDon hoaDon)
         {
             return HoaDonDA.Insert_Update_Delete(hoaDon, 1);
         }
-        public int Delete(HoaDon hoaDon)
+        public string Delete(HoaDon hoaDon)
         {
             return HoaDonDA.Insert_Update_Delete(hoaDon, 2);
         }

@@ -11,7 +11,7 @@ namespace DataAccess
 		public string MaHD { get; set; }
 		public string MaSP { get; set; }
 		public int SL { get; set; }
-		public int GiaBan { get; set; }
+		public float GiaBan { get; set; }
 		public string GhiChu { get; set; }
 		public int Enable { get; set; }
 

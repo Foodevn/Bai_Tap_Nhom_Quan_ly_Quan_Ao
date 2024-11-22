@@ -29,7 +29,7 @@ namespace DataAccess.ClassDA
 				chiTietHoaDon.MaHD = reader["MaHD"].ToString();
 				chiTietHoaDon.MaSP = reader["MaSP"].ToString();
 				chiTietHoaDon.SL = Convert.ToInt32(reader["SL"]);
-				chiTietHoaDon.GiaBan = Convert.ToInt32(reader["GiaBan"]);
+				chiTietHoaDon.GiaBan = Convert.ToSingle(reader["GiaBan"]);
 				chiTietHoaDon.GhiChu = reader["SDT"].ToString();
 				chiTietHoaDon.Enable = Convert.ToInt32(reader["Enable"]);
 				list.Add(chiTietHoaDon);
@@ -38,7 +38,7 @@ namespace DataAccess.ClassDA
 			sqlConn.Close();
 			return list;
 		}
-		public int Insert_Update_Delete(ChiTietHoaDon chiTietHoaDon, int action)
+		public string Insert_Update_Delete(ChiTietHoaDon chiTietHoaDon, int action)
 		{
 
 			SqlConnection sqlConn = new SqlConnection(Ultilities.ConnectionString);
@@ -54,15 +54,15 @@ namespace DataAccess.ClassDA
 			command.Parameters.Add(IDPara).Value = chiTietHoaDon.MaHD;
 			command.Parameters.Add("@MaSP", SqlDbType.Char, 20).Value = chiTietHoaDon.MaSP;
 			command.Parameters.Add("@SL", SqlDbType.Int).Value = chiTietHoaDon.SL;
-			command.Parameters.Add("@GiaBan", SqlDbType.Int).Value = chiTietHoaDon.GiaBan;
+			command.Parameters.Add("@GiaBan", SqlDbType.Float).Value = chiTietHoaDon.GiaBan;
 			command.Parameters.Add("@GhiChu", SqlDbType.NVarChar, 10).Value = chiTietHoaDon.GhiChu;
 			command.Parameters.Add("@Enable", SqlDbType.Int).Value = chiTietHoaDon.Enable;
 			command.Parameters.Add("@Action", SqlDbType.Int).Value = action;
 
 			int result = command.ExecuteNonQuery();
 			if (result > 0)
-				return (int)command.Parameters["@MaHD"].Value;
-			return 0;
+				return (string)command.Parameters["@MaHD"].Value;
+			return "";
 		}
 	}
 }

@@ -29,14 +29,18 @@ namespace DataAccess.ClassDA
                 hoaDon.TongTien = Convert.ToInt32(reader["TongTien"]);
                 hoaDon.MaKH = reader["MaKH"].ToString();
                 hoaDon.MaNV = reader["MaNV"].ToString();
-                hoaDon.TrangThai = reader["TrangThai"].ToString();
+				hoaDon.GiamGiaHD = Convert.ToSingle(reader["GiamGiaHD"]);
+				hoaDon.PhiShip = Convert.ToInt32(reader["PhiShip"]);
+				hoaDon.Vat = Convert.ToSingle(reader["Vat"]);
+				hoaDon.GhiChu = reader["GhiChu"].ToString();
+				hoaDon.TrangThai = reader["TrangThai"].ToString();
                 hoaDon.Enable = Convert.ToInt32(reader["Enable"]);
                 list.Add(hoaDon);
             }
             sqlConn.Close();
             return list;
         }
-        public int Insert_Update_Delete(HoaDon hoaDon, int action)
+        public string Insert_Update_Delete(HoaDon hoaDon, int action)
         {
             SqlConnection sqlConn = new SqlConnection(Ultilities.ConnectionString);
             sqlConn.Open();
@@ -53,14 +57,18 @@ namespace DataAccess.ClassDA
             command.Parameters.Add("@TongTien", SqlDbType.Int).Value = hoaDon.TongTien;
             command.Parameters.Add("@MaKH", SqlDbType.Char, 10).Value = hoaDon.MaKH;
             command.Parameters.Add("@MaNV", SqlDbType.Char, 10).Value = hoaDon.MaNV;
-            command.Parameters.Add("@TrangThai", SqlDbType.Char, 255).Value = hoaDon.TrangThai;
-            command.Parameters.Add("@Enable", SqlDbType.Int);
+			command.Parameters.Add("@GiamGiaHD", SqlDbType.Float).Value = hoaDon.GiamGiaHD;
+			command.Parameters.Add("@PhiShip", SqlDbType.Float).Value = hoaDon.PhiShip;
+			command.Parameters.Add("@Vat", SqlDbType.Float).Value = hoaDon.Vat;
+			command.Parameters.Add("@GhiChu", SqlDbType.Char, 255).Value = hoaDon.GhiChu;
+			command.Parameters.Add("@TrangThai", SqlDbType.Char, 255).Value = hoaDon.TrangThai;
+            command.Parameters.Add("@Enable", SqlDbType.Int).Value=hoaDon.Enable;
             command.Parameters.Add("@Action", SqlDbType.Int).Value = action;
 
             int result = command.ExecuteNonQuery();
             if (result > 0) // Nếu thành công thì trả về ID đã thêm
-                return (int)command.Parameters["@MaHoaDon"].Value;
-            return 0;
+                return (string)command.Parameters["@MaHoaDon"].Value;
+            return "";
         }
 
     }

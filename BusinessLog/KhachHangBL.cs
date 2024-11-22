@@ -15,15 +15,15 @@ namespace BusinessLog
 		{
 			return khachHangDA.GetAll();
 		}
-		public int Insert(KhachHang khachHang)
+		public string Insert(KhachHang khachHang)
 		{
 			return khachHangDA.Insert_Update_Delete(khachHang, 0);
 		}
-		public int Update(KhachHang khachHang)
+		public string Update(KhachHang khachHang)
 		{
 			return khachHangDA.Insert_Update_Delete(khachHang, 1);
 		}
-		public int Delete(KhachHang khachHang)
+		public string Delete(KhachHang khachHang)
 		{
 			return khachHangDA.Insert_Update_Delete(khachHang, 2);
 		}
