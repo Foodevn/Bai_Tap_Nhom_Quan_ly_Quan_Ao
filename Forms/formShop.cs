@@ -25,11 +25,13 @@ namespace quan_ly_shop_quan_ao
 		List<MauSac> listMauSac = new List<MauSac>();
 		List<DataAccess.Size> listSize = new List<DataAccess.Size>();
 		List<SanPham> listDonHang = new List<SanPham>();
+		public string MaNhanVienFormShop { get; set; }
 		public formShop()
 		{
 			InitializeComponent();
 
 		}
+		
 		private void formShop_Load(object sender, EventArgs e)
 		{
 			mtbNgayLap.Text = DateTime.Now.ToString();
@@ -43,6 +45,9 @@ namespace quan_ly_shop_quan_ao
 			LoadSanPhamToListView();
 			LoadSize();
 			LoadMauSac();
+			
+			//btnLoadDon.Visible = false;
+			
 		}
 		private void LoadMauSac()
 		{
@@ -292,7 +297,6 @@ namespace quan_ly_shop_quan_ao
 		}
 		string ThemHoaDon()
 		{
-			formDangNhap formdn = new formDangNhap();
 
 			string ma = ktKhachHang(txtHoTenKH.Text);
 
@@ -313,8 +317,7 @@ namespace quan_ly_shop_quan_ao
 				NgayLap = DateTime.Now,
 				TongTien = (int)TongTienHang(),
 				MaKH = ma,
-				MaNV = formdn.test(),
-
+				MaNV = MaNhanVienFormShop,
 				GiamGiaHD = giamGia,
 				PhiShip = Convert.ToInt32(phiGiaoHang),
 				Vat = thueVat,
@@ -355,6 +358,12 @@ namespace quan_ly_shop_quan_ao
 			}
 			string maHD = ThemHoaDon();
 			ThemChiTietHoaDon(maHD);
+			if (!string.IsNullOrEmpty(maHD))
+			{
+				MessageBox.Show("Hóa đơn đã được lưu ");
+				ClearForm();
+			}
+			
 		}
 		void DeleteSanPham_TheoMa(List<SanPham> listSP, string MaSP)
 		{
@@ -389,6 +398,7 @@ namespace quan_ly_shop_quan_ao
 			if (int.Parse(soluong) < 1)
 			{
 				MessageBox.Show("không thể thêm sản phẩm có số lượng bằng 0");
+				return;
 			}
 			if (lvDS.SelectedItems.Count > 0)
 			{
@@ -486,6 +496,34 @@ namespace quan_ly_shop_quan_ao
 		{
 			TongHoaDon();
 		}
+		
+		private void btnLoadDon_Click(object sender, EventArgs e)
+		{
+			string s=cbbMau.SelectedValue.ToString();
+			MessageBox.Show(s);
+			//formDangNhap formDangNhap = new formDangNhap();
+			//string s= MaNhanVienFormShop;
+			//Debug.WriteLine(s);
+		}
 
+		private void xóaToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			if (lvDS.SelectedItems.Count > 0)
+			{
+				ListViewItem Item1 = lvDS.SelectedItems[0];
+				string s = Item1.SubItems[0].Text;
+				foreach (SanPham sp2 in listDonHang)
+				{
+					if (sp2.MaSP.Contains(s))
+					{
+						DeleteSanPham_TheoMa(listDonHang, sp2.MaSP);
+						LoadlvDonHang(listDonHang);
+						return;
+					}
+
+				}
+				
+			}
+		}
 	}
 }

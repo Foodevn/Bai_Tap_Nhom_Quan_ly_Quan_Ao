@@ -9,9 +9,11 @@ namespace DataAccess
 	public class NhanVien
 	{
 		public string MaNhanVien { get; set; }
-		public string TenNhanVien { get; set; }
-		public string Role { get; set; }
-		public string MatKhau { get; set; }
+		public string MatKhau {  get; set; }
+		public string HoTen { get; set; }
+		public string Email { get; set; }
+		public int SDT { get; set; }
+		public DateTime NgayTao { get; set; }
 		public int Enable { get; set; }
 	}
 

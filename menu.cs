@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -20,7 +21,8 @@ namespace Quan_ly_Shop_Quan_ao_1
 		private Random random;
 		private int tempIndex;
 		private Form activeForm;
-	
+
+		public string MaNhanVienFormMenu {  get; set; }
 		public menu()
 		{
 
@@ -124,7 +126,9 @@ namespace Quan_ly_Shop_Quan_ao_1
 		#region Event
 		private void btnNguoidung_Click(object sender, EventArgs e)
 		{
-			OpenChildForm(new formShop(), sender);
+			formShop formShop = new formShop();
+			formShop.MaNhanVienFormShop = MaNhanVienFormMenu;
+			OpenChildForm(formShop, sender);
 		}
 		private void btnBaoCao_Click(object sender, EventArgs e)
 		{
@@ -141,11 +145,13 @@ namespace Quan_ly_Shop_Quan_ao_1
 		private void btnCloseChildForm_Click(object sender, EventArgs e)
 		{
 
-			if (activeForm != null)
-				activeForm.Close();
-			Reset();
-			panelDesktop.Controls.Clear()  ;
-			//LoadChildForm(new formDangNhap());
+			//if (activeForm != null)
+			//	activeForm.Close();
+			//Reset();
+			//panelDesktop.Controls.Clear()  ;
+			Debug.WriteLine(MaNhanVienFormMenu);
+
+			
 		}
 		private void btnThoat_Click(object sender, EventArgs e)
 		{

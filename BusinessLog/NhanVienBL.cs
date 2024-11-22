@@ -15,15 +15,15 @@ namespace BusinessLog
 		{
 			return NhanVienDA.GetAll();
 		}
-		public int Insert(NhanVien NhanVien)
+		public string Insert(NhanVien NhanVien)
 		{
 			return NhanVienDA.Insert_Update_Delete(NhanVien, 0);
 		}
-		public int Update(NhanVien NhanVien)
+		public string Update(NhanVien NhanVien)
 		{
 			return NhanVienDA.Insert_Update_Delete(NhanVien, 1);
 		}
-		public int Delete(NhanVien NhanVien)
+		public string Delete(NhanVien NhanVien)
 		{
 			return NhanVienDA.Insert_Update_Delete(NhanVien, 2);
 		}

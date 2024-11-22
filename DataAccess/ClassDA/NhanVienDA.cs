@@ -27,9 +27,10 @@ namespace DataAccess.ClassDA
 			{
 				NhanVien nhanVien = new NhanVien();
 				nhanVien.MaNhanVien = reader["MaNhanVien"].ToString();
-				nhanVien.TenNhanVien = reader["TenNhanVien"].ToString();
-				nhanVien.Role = reader["Role"].ToString();
 				nhanVien.MatKhau = reader["MatKhau"].ToString();
+				nhanVien.HoTen = reader["HoTen"].ToString();
+				nhanVien.Email = reader["Email"].ToString();
+				nhanVien.SDT = Convert.ToInt32( reader["SDT"]);
 				nhanVien.Enable = Convert.ToInt32(reader["Enable"]);
 				list.Add(nhanVien);
 
@@ -37,7 +38,7 @@ namespace DataAccess.ClassDA
 			sqlConn.Close();
 			return list;
 		}
-		public int Insert_Update_Delete(NhanVien nhanVien, int action)
+		public string Insert_Update_Delete(NhanVien nhanVien, int action)
 		{
 
 			SqlConnection sqlConn = new SqlConnection(Ultilities.ConnectionString);
@@ -51,16 +52,18 @@ namespace DataAccess.ClassDA
 			SqlParameter IDPara = new SqlParameter("@MaNhanVien", SqlDbType.Char, 10);
 			IDPara.Direction = ParameterDirection.InputOutput;
 			command.Parameters.Add(IDPara).Value = nhanVien.MaNhanVien;
-			command.Parameters.Add("@TenNhanVien", SqlDbType.NVarChar, 30).Value = nhanVien.TenNhanVien;
-			command.Parameters.Add("@Role", SqlDbType.Char,20).Value = nhanVien.Role;
-			command.Parameters.Add("@MatKhau", SqlDbType.Char,30).Value = nhanVien.MatKhau;
+			command.Parameters.Add("@MatKhau", SqlDbType.Char,100).Value = nhanVien.MatKhau;
+			command.Parameters.Add("@HoTen", SqlDbType.NVarChar, 255).Value = nhanVien.HoTen;
+			command.Parameters.Add("@Email", SqlDbType.Char, 255).Value = nhanVien.Email;
+			command.Parameters.Add("@SDT", SqlDbType.Int).Value = nhanVien.SDT;
+			command.Parameters.Add("@NgayTao", SqlDbType.DateTime).Value = nhanVien.NgayTao;
 			command.Parameters.Add("@Enable", SqlDbType.Int).Value = nhanVien.Enable;
 			command.Parameters.Add("@Action", SqlDbType.Int).Value = action;
 
 			int result = command.ExecuteNonQuery();
 			if (result > 0)
-				return (int)command.Parameters["@MaNhanVien"].Value;
-			return 0;
+				return (string)command.Parameters["@MaNhanVien"].Value;
+			return "";
 		}
 	}
 }

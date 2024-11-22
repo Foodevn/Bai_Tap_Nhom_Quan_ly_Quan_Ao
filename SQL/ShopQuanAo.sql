@@ -3,9 +3,8 @@ use QuanLyShopQuanAo
 go
 
 
-CREATE TABLE TaiKhoan(
-	MaTaiKhoan char(10) PRIMARY KEY,
-    MaNhanVien char(10)not null,
+CREATE TABLE NhanVien(
+    MaNhanVien char(10)PRIMARY KEY,
     MatKhau char(100) NOT NULL,
 	HoTen nvarchar(255) NOT NULL,
     Email char(255),
@@ -25,12 +24,12 @@ CREATE TABLE Role(
 );
 go
 
-CREATE TABLE RoleTaiKhoan(
+CREATE TABLE RoleNhanVien(
     MaRole		char(10) foreign key references Role(MaRole),
-    MaTaiKhoan	char(10) foreign key references TaiKhoan(MaTaiKhoan),
+    MaNhanVien	char(10) foreign key references NhanVien(MaNhanVien),
     KhichHoat	int NOT NULL,
     GhiChu		varchar(255) NOT NULL,
-	constraint MaRole_TenTaiKhoan PRIMARY KEY (MaRole,MaTaiKhoan)
+	constraint MaRole_TenTaiKhoan PRIMARY KEY (MaRole,MaNhanVien)
 );
 GO
 
@@ -116,13 +115,13 @@ CREATE TABLE ChiTietPhieuNhap(
 );
 go
 --Nhan Vien
-CREATE PROCEDURE [dbo].[TaiKhoan_GetAll]
+CREATE PROCEDURE [dbo].[NhanVien_GetAll]
 AS
-SELECT * FROM TaiKhoan	
+SELECT * FROM NhanVien	
 go
-CREATE PROCEDURE [dbo].[TaiKhoan_InsertUpdateDelete]
- @MaTaiKhoan char(10) output,
- @MaNhanVien char(10),
+CREATE PROCEDURE [dbo].[NhanVien_InsertUpdateDelete]
+ 
+ @MaNhanVien char(10)output,
  @MatKhau char(100),
  @HoTen nvarchar(255) ,
  @Email char(255),
@@ -138,32 +137,31 @@ DECLARE @NewCode NVARCHAR(20);
     DECLARE @NextNumber INT;
 
     -- Lấy số lớn nhất hiện tại và tăng lên 1
-    SELECT @NextNumber = ISNULL(MAX(CAST(SUBSTRING([MaTaiKhoan], 5, LEN([MaTaiKhoan])) AS INT)), 0) + 1 
-    FROM [TaiKhoan];
+    SELECT @NextNumber = ISNULL(MAX(CAST(SUBSTRING([MaNhanVien], 5, LEN([MaNhanVien])) AS INT)), 0) + 1 
+    FROM NhanVien;
 
     -- Tạo mã mới với tiền tố và số tự tăng
-    SELECT @MaTaiKhoan = 'NV' + RIGHT('0000' + CAST(@NextNumber AS NVARCHAR), 4)
-INSERT INTO [TaiKhoan] ([MaTaiKhoan],[MaNhanVien],[MatKhau],[HoTen],[Email],[SDT],[NgayTao],[Enable])
-VALUES (@MaTaiKhoan, @MaNhanVien,@MatKhau,@HoTen,@Email,@SDT,@NgayTao,@Enable)
+    SELECT  @MaNhanVien= 'NV' + RIGHT('0000' + CAST(@NextNumber AS NVARCHAR), 4)
+INSERT INTO [NhanVien] ([MaNhanVien],[MatKhau],[HoTen],[Email],[SDT],[NgayTao],[Enable])
+VALUES ( @MaNhanVien,@MatKhau,@HoTen,@Email,@SDT,@NgayTao,@Enable)
 END
 
 ELSE IF @Action = 1
 BEGIN
-UPDATE [TaiKhoan] SET [MaNhanVien] = @MaNhanVien, [MatKhau]=@MatKhau, [HoTen]=@HoTen, 
+UPDATE [NhanVien] SET  [MatKhau]=@MatKhau, [HoTen]=@HoTen, 
 [Email]=@Email,[NgayTao]=@NgayTao , [SDT]=@SDT, [Enable]=@Enable
-WHERE [MaTaiKhoan] = @MaTaiKhoan
+WHERE [MaNhanVien] = @MaNhanVien
 END
 
 ELSE IF @Action = 2
 BEGIN
-DELETE FROM [TaiKhoan] WHERE [MaTaiKhoan] = @MaTaiKhoan
+DELETE FROM [NhanVien] WHERE [MaNhanVien] = @MaNhanVien
 END
 go
 
-exec TaiKhoan_InsertUpdateDelete '','NV0001','1','Nguyen van t','nguyenvant@gmail.com','0908888888','2024-11-21',1,0;
-exec TaiKhoan_InsertUpdateDelete '','NV0002','1','Nguyen van t','nguyenvant@gmail.com','0908888888','2024-11-21',1,0;
 
-exec dbo.[TaiKhoan_GetAll];
+
+
 -- Khach Hang
 go
 CREATE PROCEDURE [dbo].[KhachHang__GetAll] 
@@ -509,7 +507,7 @@ AS
 -- Nếu Action = 0, thực hiện thêm dữ liệu
 IF @Action = 0
 BEGIN
-DECLARE @NewCode NVARCHAR(20);
+	DECLARE @NewCode NVARCHAR(20);
     DECLARE @NextNumber INT;
 
     -- Lấy số lớn nhất hiện tại và tăng lên 1
@@ -583,16 +581,16 @@ exec NhomMatHang_InsertUpdateDelete 'THL',N'thắt lưng',1,0;
 select * from NhomMatHang
 --INSERT INTO SanPham (MaSP, TenSP, GiaBan, SLTon, NhaCungCap, IDMau, IDSize,IDNhomMatHang, GhiChu, Enable)
 --VALUES 
-exec SanPham_InsertUpdateDelete '', N'Áo Thun', 200000, 0.0,100,'NCC01', 'MS0001', 'S0001','AOT', N'Áo thun nam', 1,0;
-exec SanPham_InsertUpdateDelete '', N'Áo Khoác', 500000,0.0, 50,'NCC02', 'MS0002', 'S0002','AOK', N'Áo khoác nữ', 1,0;
-exec SanPham_InsertUpdateDelete '', N'Quần Jean', 300000,0.0, 70,'NCC03', 'MS0003', 'S0003','QUA', N'Quần jean xanh', 1,0;
-exec SanPham_InsertUpdateDelete '', N'Giày Sneaker', 700000,0.0, 40,'NCC04', 'MS0004', 'S0004','GIA', N'Giày thể thao', 1,0;
-exec SanPham_InsertUpdateDelete '', N'Túi Xách', 250000,9.99, 90,'NCC05', 'MS0005', 'S0005','TUI', N'Túi xách nữ', 1,0;
-exec SanPham_InsertUpdateDelete '', N'Nón Lưỡi Trai', 150000, 0.0,150,'NCC01', 'MS0006', 'S0006','NON', N'Nón thời trang', 1,0;
-exec SanPham_InsertUpdateDelete '', N'Váy Dạ Hội', 900000,0.0, 30,'NCC02', 'MS0007', 'S0007','VAY', N'Váy nữ cao cấp', 1,0;
-exec SanPham_InsertUpdateDelete '', N'Thắt Lưng', 120000,0.0, 90,'NCC03', 'MS0008', 'S0008','THL', N'Thắt lưng da', 1,0;
-exec SanPham_InsertUpdateDelete '', N'Áo Sơ Mi', 350000,10.1, 60,'NCC04', 'MS0009', 'S0009','ASM', N'Áo sơ mi trắng', 1,0;
-exec SanPham_InsertUpdateDelete '', N'Giày Cao Gót', 450000,0.0, 45,'NCC05', 'MS0010', 'S0010','GIA', N'Giày nữ cao gót', 1,0;
+exec SanPham_InsertUpdateDelete '', N'Áo Thun', 200000, 0.0,100,'Nike', 'MS0001', 'S0001','AOT', N'Áo thun nam', 1,0;
+exec SanPham_InsertUpdateDelete '', N'Áo Khoác', 500000,0.0, 50,'gucci', 'MS0002', 'S0002','AOK', N'Áo khoác nữ', 1,0;
+exec SanPham_InsertUpdateDelete '', N'Quần Jean', 300000,0.0, 70,'gucci', 'MS0003', 'S0003','QUA', N'Quần jean xanh', 1,0;
+exec SanPham_InsertUpdateDelete '', N'Giày Sneaker', 700000,0.0, 40,'Nike', 'MS0004', 'S0004','GIA', N'Giày thể thao', 1,0;
+exec SanPham_InsertUpdateDelete '', N'Túi Xách', 250000,9.99, 90,'gucci', 'MS0005', 'S0005','TUI', N'Túi xách nữ', 1,0;
+exec SanPham_InsertUpdateDelete '', N'Nón Lưỡi Trai', 150000, 0.0,150,'Nike', 'MS0006', 'S0006','NON', N'Nón thời trang', 1,0;
+exec SanPham_InsertUpdateDelete '', N'Váy Dạ Hội', 900000,0.0, 30,'Nike', 'MS0007', 'S0007','VAY', N'Váy nữ cao cấp', 1,0;
+exec SanPham_InsertUpdateDelete '', N'Thắt Lưng', 120000,0.0, 90,'gucci', 'MS0008', 'S0008','THL', N'Thắt lưng da', 1,0;
+exec SanPham_InsertUpdateDelete '', N'Áo Sơ Mi', 350000,10.1, 60,'gucci', 'MS0009', 'S0009','ASM', N'Áo sơ mi trắng', 1,0;
+exec SanPham_InsertUpdateDelete '', N'Giày Cao Gót', 450000,0.0, 45,'gucci', 'MS0010', 'S0010','GIA', N'Giày nữ cao gót', 1,0;
 
 select * from SanPham
 --INSERT INTO KhachHang (MaKhachHang, TenKhachHang, DiaChi, SDT, Enable)
@@ -608,21 +606,23 @@ exec KhachHang_InsertUpdateDelete 'KH008', N'Do Van H', N'505 Ly Thuong Kiet, Ha
 exec KhachHang_InsertUpdateDelete 'KH009', N'Vu Thi I', N'606 Nguyen Hue, HCMC', '0954321098', 1,0;
 exec KhachHang_InsertUpdateDelete 'KH010', N'Nguyen Van J', N'707 Tran Phu, Nha Trang', '0998765432', 1,0;
 select * from KhachHang
- 
+
+exec NhanVien_InsertUpdateDelete '','1','Nguyen van t','nguyenvant@gmail.com','0908888888','2024-11-21',1,0;
+exec NhanVien_InsertUpdateDelete '','1','Nguyen van b','nguyenvanb@gmail.com','0908888889','2024-11-21',1,0;
 
 select * from NhanVien
 --INSERT INTO HoaDon (MaHoaDon, NgayLap, TongTien, MaKH, MaNV, TrangThai, Enable)
 --VALUES;
 exec HoaDon_InsertUpdateDelete '', '2024-01-01', 500000, 'KH0001', 'NV0001',1.2,12000,1.2,N'', N'Đã thanh toán', 1, 0;
 exec HoaDon_InsertUpdateDelete '', '2024-01-02', 300000, 'KH0002', 'NV0002',1.2,12000,1.2,N'', N'Đã thanh toán', 1,0;
-exec HoaDon_InsertUpdateDelete '', '2024-01-03', 450000, 'KH0003', 'NV0003',1.2,12000,1.2,N'', N'Chưa thanh toán', 1,0;
-exec HoaDon_InsertUpdateDelete '', '2024-01-04', 250000, 'KH0004', 'NV0004',1.2,12000,1.2,N'', N'Đã thanh toán', 1,0;
-exec HoaDon_InsertUpdateDelete '', '2024-01-05', 700000, 'KH0005', 'NV0005',1.2,12000,1.2,N'', N'Đã thanh toán', 1,0;
-exec HoaDon_InsertUpdateDelete '', '2024-01-06', 800000, 'KH0006', 'NV0006',1.2,12000,1.2,N'', N'Chưa thanh toán', 1,0;
-exec HoaDon_InsertUpdateDelete '', '2024-01-07', 200000, 'KH0007', 'NV0007',1.2,12000,1.2,N'', N'Đã thanh toán', 1,0;
-exec HoaDon_InsertUpdateDelete '', '2024-01-08', 150000, 'KH0008', 'NV0008',1.2,12000,1.2,N'', N'Đã thanh toán', 1,0;
-exec HoaDon_InsertUpdateDelete '', '2024-01-09', 650000, 'KH0009', 'NV0009',1.2,12000,1.2,N'', N'Chưa thanh toán', 1,0;
-exec HoaDon_InsertUpdateDelete '', '2024-01-10', 300000, 'KH0010', 'NV0010',1.2,12000,1.2,N'', N'Đã thanh toán', 1,0;
+exec HoaDon_InsertUpdateDelete '', '2024-01-03', 450000, 'KH0003', 'NV0001',1.2,12000,1.2,N'', N'Chưa thanh toán', 1,0;
+exec HoaDon_InsertUpdateDelete '', '2024-01-04', 250000, 'KH0004', 'NV0002',1.2,12000,1.2,N'', N'Đã thanh toán', 1,0;
+exec HoaDon_InsertUpdateDelete '', '2024-01-05', 700000, 'KH0005', 'NV0001',1.2,12000,1.2,N'', N'Đã thanh toán', 1,0;
+exec HoaDon_InsertUpdateDelete '', '2024-01-06', 800000, 'KH0006', 'NV0001',1.2,12000,1.2,N'', N'Chưa thanh toán', 1,0;
+exec HoaDon_InsertUpdateDelete '', '2024-01-07', 200000, 'KH0007', 'NV0001',1.2,12000,1.2,N'', N'Đã thanh toán', 1,0;
+exec HoaDon_InsertUpdateDelete '', '2024-01-08', 150000, 'KH0008', 'NV0001',1.2,12000,1.2,N'', N'Đã thanh toán', 1,0;
+exec HoaDon_InsertUpdateDelete '', '2024-01-09', 650000, 'KH0009', 'NV0002',1.2,12000,1.2,N'', N'Chưa thanh toán', 1,0;
+exec HoaDon_InsertUpdateDelete '', '2024-01-10', 300000, 'KH0010', 'NV0001',1.2,12000,1.2,N'', N'Đã thanh toán', 1,0;
 select * from HoaDon
 --INSERT INTO ChiTietHoaDon (MaHD, MaSP, SL, GiaBan, GhiChu, Enable)
 --VALUES 
@@ -641,14 +641,14 @@ exec ChiTietHoaDon_InsertUpdateDelete 'HD0008', 'GIA0010', 1, 450000, N'Giày ca
 --VALUES 
 exec PhieuNhapHang_InsertUpdateDelete '', '2024-01-01', 'NCC01', 'NV0001', 1,0;
 exec PhieuNhapHang_InsertUpdateDelete '', '2024-01-02', 'NCC02', 'NV0002', 1,0;
-exec PhieuNhapHang_InsertUpdateDelete '', '2024-01-03', 'NCC03', 'NV0003', 1,0;
-exec PhieuNhapHang_InsertUpdateDelete '', '2024-01-04', 'NCC04', 'NV0004', 1,0;
-exec PhieuNhapHang_InsertUpdateDelete '', '2024-01-05', 'NCC05', 'NV0005', 1,0;
-exec PhieuNhapHang_InsertUpdateDelete '', '2024-01-06', 'NCC01', 'NV0006', 1,0;
-exec PhieuNhapHang_InsertUpdateDelete '', '2024-01-07', 'NCC02', 'NV0007', 1,0;
-exec PhieuNhapHang_InsertUpdateDelete '', '2024-01-08', 'NCC03', 'NV0008', 1,0;
-exec PhieuNhapHang_InsertUpdateDelete '', '2024-01-09', 'NCC04', 'NV0009', 1,0;
-exec PhieuNhapHang_InsertUpdateDelete '', '2024-01-10', 'NCC05', 'NV0010', 1,0;
+exec PhieuNhapHang_InsertUpdateDelete '', '2024-01-03', 'NCC03', 'NV0001', 1,0;
+exec PhieuNhapHang_InsertUpdateDelete '', '2024-01-04', 'NCC04', 'NV0002', 1,0;
+exec PhieuNhapHang_InsertUpdateDelete '', '2024-01-05', 'NCC05', 'NV0001', 1,0;
+exec PhieuNhapHang_InsertUpdateDelete '', '2024-01-06', 'NCC01', 'NV0002', 1,0;
+exec PhieuNhapHang_InsertUpdateDelete '', '2024-01-07', 'NCC02', 'NV0002', 1,0;
+exec PhieuNhapHang_InsertUpdateDelete '', '2024-01-08', 'NCC03', 'NV0001', 1,0;
+exec PhieuNhapHang_InsertUpdateDelete '', '2024-01-09', 'NCC04', 'NV0002', 1,0;
+exec PhieuNhapHang_InsertUpdateDelete '', '2024-01-10', 'NCC05', 'NV0001', 1,0;
 
 --INSERT INTO ChiTietPhieuNhap (MaPhieuNhap, MaSP, SL, GiaNhap, GhiChu, Enable)
 --VALUES 
@@ -666,16 +666,7 @@ exec ChiTietPhieuNhap_InsertUpdateDelete 'PN0010', 'GIA0010', 5, 420000 , N'Nh�
 
 --INSERT INTO NhanVien (MaNhanVien, TenNhanVien, Role, MatKhau, Enable)
 --VALUES 
-exec NhanVien_InsertUpdateDelete '', N'Nguyen Van An', '', 'password001', 1,0;
-exec NhanVien_InsertUpdateDelete '', N'Tran Thi Bich', 'Manager', 'password002', 1,0;
-exec NhanVien_InsertUpdateDelete '', N'Le Van Cuong', 'Sales', 'password003', 1,0;
-exec NhanVien_InsertUpdateDelete '', N'Pham Thi Dung', 'Warehouse', 'password004', 1,0;
-exec NhanVien_InsertUpdateDelete '', N'Hoang Van E', 'Sales', 'password005', 1,0;
-exec NhanVien_InsertUpdateDelete '', N'Dang Thi F', 'Customer Support', 'password006', 1,0;
-exec NhanVien_InsertUpdateDelete '', N'Bui Van G', 'Admin', 'password007', 1,0;
-exec NhanVien_InsertUpdateDelete '', N'Do Thi H', 'Warehouse', 'password008', 1,0;
-exec NhanVien_InsertUpdateDelete '', N'Vu Van I', 'Sales', 'password009', 1,0;
-exec NhanVien_InsertUpdateDelete '', N'Nguyen Thi J', 'Customer Support', 'password010', 1,0;
+
 
 select * from SanPham
 select * from MauSac

@@ -83,11 +83,14 @@
 			this.label13 = new System.Windows.Forms.Label();
 			this.label12 = new System.Windows.Forms.Label();
 			this.label1 = new System.Windows.Forms.Label();
+			this.contextMenuStrip2 = new System.Windows.Forms.ContextMenuStrip(this.components);
+			this.xóaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.contextMenuStrip1.SuspendLayout();
 			this.groupBox2.SuspendLayout();
 			this.groupBox3.SuspendLayout();
 			this.groupBox1.SuspendLayout();
 			this.groupBox4.SuspendLayout();
+			this.contextMenuStrip2.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// txtTimKiem
@@ -134,9 +137,9 @@
 			this.lvDS.FullRowSelect = true;
 			this.lvDS.GridLines = true;
 			this.lvDS.HideSelection = false;
-			this.lvDS.Location = new System.Drawing.Point(9, 133);
+			this.lvDS.Location = new System.Drawing.Point(9, 115);
 			this.lvDS.Name = "lvDS";
-			this.lvDS.Size = new System.Drawing.Size(412, 513);
+			this.lvDS.Size = new System.Drawing.Size(412, 531);
 			this.lvDS.TabIndex = 6;
 			this.lvDS.UseCompatibleStateImageBehavior = false;
 			this.lvDS.View = System.Windows.Forms.View.Details;
@@ -201,6 +204,7 @@
             this.clh_GiamGia,
             this.clh_SL,
             this.clh_ThanhTien});
+			this.lvChiTietDonhang.ContextMenuStrip = this.contextMenuStrip2;
 			this.lvChiTietDonhang.FullRowSelect = true;
 			this.lvChiTietDonhang.GridLines = true;
 			this.lvChiTietDonhang.HideSelection = false;
@@ -303,6 +307,7 @@
 			this.btnLoadDon.TabIndex = 3;
 			this.btnLoadDon.Text = "Load đơn";
 			this.btnLoadDon.UseVisualStyleBackColor = false;
+			this.btnLoadDon.Click += new System.EventHandler(this.btnLoadDon_Click);
 			// 
 			// btnLuuIn
 			// 
@@ -612,6 +617,21 @@
 			this.label1.TabIndex = 7;
 			this.label1.Text = "Mã Hoặc Tên";
 			// 
+			// contextMenuStrip2
+			// 
+			this.contextMenuStrip2.ImageScalingSize = new System.Drawing.Size(20, 20);
+			this.contextMenuStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.xóaToolStripMenuItem});
+			this.contextMenuStrip2.Name = "contextMenuStrip2";
+			this.contextMenuStrip2.Size = new System.Drawing.Size(211, 56);
+			// 
+			// xóaToolStripMenuItem
+			// 
+			this.xóaToolStripMenuItem.Name = "xóaToolStripMenuItem";
+			this.xóaToolStripMenuItem.Size = new System.Drawing.Size(210, 24);
+			this.xóaToolStripMenuItem.Text = "Xóa";
+			this.xóaToolStripMenuItem.Click += new System.EventHandler(this.xóaToolStripMenuItem_Click);
+			// 
 			// formShop
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -633,6 +653,7 @@
 			this.groupBox1.PerformLayout();
 			this.groupBox4.ResumeLayout(false);
 			this.groupBox4.PerformLayout();
+			this.contextMenuStrip2.ResumeLayout(false);
 			this.ResumeLayout(false);
 
 		}
@@ -692,6 +713,8 @@
 		private System.Windows.Forms.Button btnHuyBo;
 		private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
 		private System.Windows.Forms.ToolStripMenuItem sốLượngToolStripMenuItem;
+		private System.Windows.Forms.ContextMenuStrip contextMenuStrip2;
+		private System.Windows.Forms.ToolStripMenuItem xóaToolStripMenuItem;
 	}
 }
 

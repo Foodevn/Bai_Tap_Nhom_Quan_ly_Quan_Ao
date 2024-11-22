@@ -1,4 +1,6 @@
-﻿using quan_ly_shop_quan_ao;
+﻿using BusinessLog;
+using DataAccess;
+using quan_ly_shop_quan_ao;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,13 +16,11 @@ namespace Quan_ly_Shop_Quan_ao_1
 {
 	public partial class formDangNhap : Form
 	{
-			
+		public string MaNV {  get; set; }
 		public formDangNhap()
 		{
-			//tenNV = "01";
 			InitializeComponent();			
 		}
-		public string tenNV;
 		private void btnDangNhap_Click(object sender, EventArgs e)
 		{
 			
@@ -28,25 +28,38 @@ namespace Quan_ly_Shop_Quan_ao_1
 			{
 				lbThongBao.Text = "Vui lòng nhập tên và mật khẩu";
 				lbThongBao.ForeColor=Color.Red;
+				return;
 			}
-			else { 
-				this.Hide();
-				menu form = new menu();
+			List<NhanVien> listNhanVien= new List<NhanVien>();
+			NhanVienBL nhanVienBL = new NhanVienBL();
+			listNhanVien = nhanVienBL.GetAll();
+			foreach(NhanVien nhanVien in listNhanVien)
+			{
 				
-
-
-				form.ShowDialog();
+				if(nhanVien.MaNhanVien.Trim().ToLower() == txtTenDangNhap.Text.Trim().ToLower() &&
+					nhanVien.MatKhau.Trim() == txtMatKhau.Text)
+				{
+					
+					this.Hide();
+					menu form = new menu();
+					form.MaNhanVienFormMenu=nhanVien.MaNhanVien;
+					form.Show();
+					return;
+				}
 			}
+			MessageBox.Show("Tên tài khoản hoặc mật khẩu chưa đúng!");
+
 		}
-		
+		public string test()
+		{
+			return "NV0001"; 
+		}
+
 		private void btnThoat_Click(object sender, EventArgs e)
 		{
 			Application.Exit();
 		}
-		public string test()
-		{
-			return "NV0005";
-		}
+		
 		private void formDangNhap_Load(object sender, EventArgs e)
 		{
 			
