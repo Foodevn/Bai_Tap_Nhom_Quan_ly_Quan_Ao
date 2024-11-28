@@ -1,4 +1,6 @@
-﻿using Chitietphieunhau;
+﻿using BusinessLog;
+using Chitietphieunhau;
+using DataAccess.Class;
 using quan_ly_shop_quan_ao;
 using quanlyshopquanao;
 using System;
@@ -25,12 +27,9 @@ namespace Quan_ly_Shop_Quan_ao_1
 		public string MaNhanVienFormMenu {  get; set; }
 		public menu()
 		{
-
 			InitializeComponent();
 			random = new Random();
 			btnCloseChildForm.Visible = false;
-			
-
 		}
 
 		//Constructor
@@ -41,7 +40,6 @@ namespace Quan_ly_Shop_Quan_ao_1
 		//private extern static void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int lParam);
 		//Methods
 		#region Function
-
 		private void OpenChildForm(Form childForm, object btnSender)
 		{
 			if (activeForm != null)
@@ -76,7 +74,28 @@ namespace Quan_ly_Shop_Quan_ao_1
 			currentButton = null;
 			btnCloseChildForm.Visible = false;
 		}
+		private void KiemTraRole()
+		{
+			RoleNhanVienBL roleNhanVienBL = new RoleNhanVienBL();
+			List<RoleNhanVien> listRoleNhanVien = roleNhanVienBL.GetAll();
+			foreach (RoleNhanVien roleNhanVien in listRoleNhanVien)
+			{
+				if (roleNhanVien.MaNhanVien == MaNhanVienFormMenu)
+				{
+					if (roleNhanVien.MaRole.Trim() == "003")
+					{
+						btnDSSanPham.Visible = false;
+						btnKhachHang.Visible = false;
+						btnDoanhThu.Visible = false;
+						btnNhapHang.Visible = false;
+					}
 
+				}
+			}
+			
+
+
+		}
 		#endregion
 		#region
 		private Color SelectThemeColor()
@@ -155,10 +174,10 @@ namespace Quan_ly_Shop_Quan_ao_1
 		}
 		private void btnThoat_Click(object sender, EventArgs e)
 		{
-			this.Hide();
-			Form form = new formDangNhap();
-			form.ShowDialog();
 			this.Close();
+			Form form = new formDangNhap();
+			form.Show();
+			
 		}
 		private void button1_Click(object sender, EventArgs e)
 		{
@@ -170,15 +189,17 @@ namespace Quan_ly_Shop_Quan_ao_1
 		}
 		private void menu_Load(object sender, EventArgs e)
 		{
+			
+			//MessageBox.Show(MaNhanVienFormMenu);
 			btnDonHang.PerformClick();
+			KiemTraRole();
+
 		}
 		private void button3_Click(object sender, EventArgs e)
 		{
-			OpenChildForm(new FormBaoCaoDanhThu(), sender);
+			OpenChildForm(new Lapphieunhaphangmoi(), sender);
 		}
 		#endregion
-
-
 
 	}
 }

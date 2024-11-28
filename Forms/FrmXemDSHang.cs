@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using BusinessLog;
 using DataAccess;
 using DataAccess.Class;
+using quanlyshopquanao;
 
 namespace XemLaiHoaDon
 {
@@ -65,6 +66,11 @@ namespace XemLaiHoaDon
             }
         }
 
-
-    }
+		private void btnThemHang_Click(object sender, EventArgs e)
+		{
+            Themmathangmoi themmathangmoi = new Themmathangmoi();
+            themmathangmoi.insertOrUpdate=true;
+            themmathangmoi.ShowDialog();
+		}
+	}
 }

@@ -148,6 +148,7 @@
 			this.txtSdt.Name = "txtSdt";
 			this.txtSdt.Size = new System.Drawing.Size(198, 22);
 			this.txtSdt.TabIndex = 2;
+			this.txtSdt.TextChanged += new System.EventHandler(this.txtSdt_TextChanged);
 			// 
 			// cbTrangThai
 			// 

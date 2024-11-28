@@ -50,6 +50,7 @@
     <Compile Include="NhomMatHangBL.cs" />
     <Compile Include="PhieuNhapHangBL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RoleNhanVienBL.cs" />
     <Compile Include="SanPhamBL.cs" />
     <Compile Include="SizeBL.cs" />
   </ItemGroup>

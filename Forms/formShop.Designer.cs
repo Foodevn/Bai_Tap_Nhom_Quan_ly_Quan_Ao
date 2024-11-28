@@ -49,6 +49,8 @@
 			this.clh_GiamGia = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
 			this.clh_SL = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
 			this.clh_ThanhTien = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+			this.contextMenuStrip2 = new System.Windows.Forms.ContextMenuStrip(this.components);
+			this.xóaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.groupBox3 = new System.Windows.Forms.GroupBox();
 			this.cbbTrangThai = new System.Windows.Forms.ComboBox();
 			this.lbl_Tongtien = new System.Windows.Forms.Label();
@@ -83,14 +85,12 @@
 			this.label13 = new System.Windows.Forms.Label();
 			this.label12 = new System.Windows.Forms.Label();
 			this.label1 = new System.Windows.Forms.Label();
-			this.contextMenuStrip2 = new System.Windows.Forms.ContextMenuStrip(this.components);
-			this.xóaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.contextMenuStrip1.SuspendLayout();
 			this.groupBox2.SuspendLayout();
+			this.contextMenuStrip2.SuspendLayout();
 			this.groupBox3.SuspendLayout();
 			this.groupBox1.SuspendLayout();
 			this.groupBox4.SuspendLayout();
-			this.contextMenuStrip2.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// txtTimKiem
@@ -139,7 +139,7 @@
 			this.lvDS.HideSelection = false;
 			this.lvDS.Location = new System.Drawing.Point(9, 115);
 			this.lvDS.Name = "lvDS";
-			this.lvDS.Size = new System.Drawing.Size(412, 531);
+			this.lvDS.Size = new System.Drawing.Size(427, 531);
 			this.lvDS.TabIndex = 6;
 			this.lvDS.UseCompatibleStateImageBehavior = false;
 			this.lvDS.View = System.Windows.Forms.View.Details;
@@ -244,6 +244,21 @@
 			// 
 			this.clh_ThanhTien.Text = "Thành Tiền";
 			this.clh_ThanhTien.Width = 127;
+			// 
+			// contextMenuStrip2
+			// 
+			this.contextMenuStrip2.ImageScalingSize = new System.Drawing.Size(20, 20);
+			this.contextMenuStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.xóaToolStripMenuItem});
+			this.contextMenuStrip2.Name = "contextMenuStrip2";
+			this.contextMenuStrip2.Size = new System.Drawing.Size(105, 28);
+			// 
+			// xóaToolStripMenuItem
+			// 
+			this.xóaToolStripMenuItem.Name = "xóaToolStripMenuItem";
+			this.xóaToolStripMenuItem.Size = new System.Drawing.Size(104, 24);
+			this.xóaToolStripMenuItem.Text = "Xóa";
+			this.xóaToolStripMenuItem.Click += new System.EventHandler(this.xóaToolStripMenuItem_Click);
 			// 
 			// groupBox3
 			// 
@@ -356,6 +371,7 @@
 			this.txtPhiGiaoHang.Size = new System.Drawing.Size(152, 22);
 			this.txtPhiGiaoHang.TabIndex = 2;
 			this.txtPhiGiaoHang.TextChanged += new System.EventHandler(this.txtPhiGiaoHang_TextChanged);
+			this.txtPhiGiaoHang.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPhiGiaoHang_KeyPress);
 			// 
 			// txtThueVAT
 			// 
@@ -365,6 +381,7 @@
 			this.txtThueVAT.Size = new System.Drawing.Size(141, 22);
 			this.txtThueVAT.TabIndex = 2;
 			this.txtThueVAT.TextChanged += new System.EventHandler(this.txtThueVAT_TextChanged);
+			this.txtThueVAT.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtThueVAT_KeyPress);
 			// 
 			// txtGiamGia
 			// 
@@ -374,6 +391,7 @@
 			this.txtGiamGia.Size = new System.Drawing.Size(141, 22);
 			this.txtGiamGia.TabIndex = 2;
 			this.txtGiamGia.TextChanged += new System.EventHandler(this.txtGiamGia_TextChanged);
+			this.txtGiamGia.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtGiamGia_KeyPress);
 			// 
 			// txtTongTienHang
 			// 
@@ -568,7 +586,7 @@
             "đỏ",
             "tím",
             "vàng"});
-			this.cbbSize.Location = new System.Drawing.Point(113, 85);
+			this.cbbSize.Location = new System.Drawing.Point(113, 80);
 			this.cbbSize.Name = "cbbSize";
 			this.cbbSize.Size = new System.Drawing.Size(121, 24);
 			this.cbbSize.TabIndex = 9;
@@ -584,7 +602,7 @@
             "đỏ",
             "tím",
             "vàng"});
-			this.cbbMau.Location = new System.Drawing.Point(112, 50);
+			this.cbbMau.Location = new System.Drawing.Point(112, 48);
 			this.cbbMau.Name = "cbbMau";
 			this.cbbMau.Size = new System.Drawing.Size(156, 24);
 			this.cbbMau.TabIndex = 9;
@@ -593,7 +611,7 @@
 			// label13
 			// 
 			this.label13.AutoSize = true;
-			this.label13.Location = new System.Drawing.Point(62, 56);
+			this.label13.Location = new System.Drawing.Point(62, 54);
 			this.label13.Name = "label13";
 			this.label13.Size = new System.Drawing.Size(33, 16);
 			this.label13.TabIndex = 8;
@@ -602,7 +620,7 @@
 			// label12
 			// 
 			this.label12.AutoSize = true;
-			this.label12.Location = new System.Drawing.Point(62, 90);
+			this.label12.Location = new System.Drawing.Point(62, 85);
 			this.label12.Name = "label12";
 			this.label12.Size = new System.Drawing.Size(33, 16);
 			this.label12.TabIndex = 8;
@@ -616,21 +634,6 @@
 			this.label1.Size = new System.Drawing.Size(89, 16);
 			this.label1.TabIndex = 7;
 			this.label1.Text = "Mã Hoặc Tên";
-			// 
-			// contextMenuStrip2
-			// 
-			this.contextMenuStrip2.ImageScalingSize = new System.Drawing.Size(20, 20);
-			this.contextMenuStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.xóaToolStripMenuItem});
-			this.contextMenuStrip2.Name = "contextMenuStrip2";
-			this.contextMenuStrip2.Size = new System.Drawing.Size(211, 56);
-			// 
-			// xóaToolStripMenuItem
-			// 
-			this.xóaToolStripMenuItem.Name = "xóaToolStripMenuItem";
-			this.xóaToolStripMenuItem.Size = new System.Drawing.Size(210, 24);
-			this.xóaToolStripMenuItem.Text = "Xóa";
-			this.xóaToolStripMenuItem.Click += new System.EventHandler(this.xóaToolStripMenuItem_Click);
 			// 
 			// formShop
 			// 
@@ -647,13 +650,13 @@
 			this.Load += new System.EventHandler(this.formShop_Load);
 			this.contextMenuStrip1.ResumeLayout(false);
 			this.groupBox2.ResumeLayout(false);
+			this.contextMenuStrip2.ResumeLayout(false);
 			this.groupBox3.ResumeLayout(false);
 			this.groupBox3.PerformLayout();
 			this.groupBox1.ResumeLayout(false);
 			this.groupBox1.PerformLayout();
 			this.groupBox4.ResumeLayout(false);
 			this.groupBox4.PerformLayout();
-			this.contextMenuStrip2.ResumeLayout(false);
 			this.ResumeLayout(false);
 
 		}
@@ -698,12 +701,10 @@
 		private System.Windows.Forms.GroupBox groupBox4;
 		private System.Windows.Forms.Label label1;
 		private System.Windows.Forms.Label label12;
-		private System.Windows.Forms.ComboBox cbbMau;
 		private System.Windows.Forms.Label label13;
 		private System.Windows.Forms.Button btnLoadDon;
 		private System.Windows.Forms.ComboBox cbbTrangThai;
 		private System.Windows.Forms.Label label14;
-		private System.Windows.Forms.ComboBox cbbSize;
 		private System.Windows.Forms.ColumnHeader columnHeader3;
 		private System.Windows.Forms.ColumnHeader columnHeader4;
 		private System.Windows.Forms.ColumnHeader columnHeader5;
@@ -715,6 +716,8 @@
 		private System.Windows.Forms.ToolStripMenuItem sốLượngToolStripMenuItem;
 		private System.Windows.Forms.ContextMenuStrip contextMenuStrip2;
 		private System.Windows.Forms.ToolStripMenuItem xóaToolStripMenuItem;
+		private System.Windows.Forms.ComboBox cbbSize;
+		private System.Windows.Forms.ComboBox cbbMau;
 	}
 }
 

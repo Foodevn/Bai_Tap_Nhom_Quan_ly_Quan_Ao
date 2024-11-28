@@ -26,5 +26,10 @@ namespace XemLaiHoaDon
         {
 
         }
-    }
+
+		private void txtSdt_TextChanged(object sender, EventArgs e)
+		{
+
+		}
+	}
 }

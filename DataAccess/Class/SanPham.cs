@@ -12,6 +12,7 @@ namespace DataAccess
 		public string TenSP { get; set; }
 		public float GiaBan { get; set; }
 		public float GiamGia {  get; set; }
+		public float GiaNhap {  get; set; }
 		public int SLTon { get; set; }
 		public string NhaCungCap { get; set; }
 		public string IDMau { get; set; }

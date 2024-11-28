@@ -12,9 +12,11 @@ namespace quanlyshopquanao
 {
     public partial class Themmathangmoi : Form
     {
+        public bool insertOrUpdate;
         public Themmathangmoi()
         {
-            InitializeComponent();
+			insertOrUpdate=false;
+			InitializeComponent();
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -24,8 +26,11 @@ namespace quanlyshopquanao
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
-        }
+			if (insertOrUpdate)
+			{
+				button1.Visible = false;
+			}
+		}
 
         private void button1_Click(object sender, EventArgs e)
         {

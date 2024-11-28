@@ -31,7 +31,6 @@ namespace quan_ly_shop_quan_ao
 			InitializeComponent();
 
 		}
-		
 		private void formShop_Load(object sender, EventArgs e)
 		{
 			mtbNgayLap.Text = DateTime.Now.ToString();
@@ -42,17 +41,13 @@ namespace quan_ly_shop_quan_ao
 			SizeBL sizeBL = new SizeBL();
 			listSize = sizeBL.GetAll();
 
-			LoadSanPhamToListView();
 			LoadSize();
 			LoadMauSac();
-			
-			//btnLoadDon.Visible = false;
+			LoadSanPhamToListView();
 			
 		}
 		private void LoadMauSac()
 		{
-
-
 			cbbMau.SelectedIndexChanged -= cbbMau_SelectedIndexChanged;
 			cbbMau.DataSource = listMauSac;
 
@@ -87,6 +82,7 @@ namespace quan_ly_shop_quan_ao
 				item.SubItems.Add(tenMauSac);
 				string tenSize = listSize.Find(x => x.MaSize == sp.IDSize).TenSize;
 				item.SubItems.Add(tenSize);
+				
 			}
 			lvDS.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
 			lvDS.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
@@ -112,7 +108,7 @@ namespace quan_ly_shop_quan_ao
 			mtbSDT.Text = "";
 			txtDiaChi.Text = "";
 			lvChiTietDonhang.Items.Clear();
-			mtbNgayLap.Text = "";
+			
 			txtTongTienHang.Text = "";
 			txtPhiGiaoHang.Text = "";
 			txtTongThanhToan.Text = "";
@@ -250,7 +246,6 @@ namespace quan_ly_shop_quan_ao
 			return ketQuaTimKiem;
 
 		}
-
 		float TongTienHang()
 		{
 			float tongTienHang = listDonHang.Sum(x => x.GiaBan * x.SLTon - x.GiaBan * x.SLTon * x.GiamGia / 100);
@@ -486,6 +481,7 @@ namespace quan_ly_shop_quan_ao
 		}
 		private void txtGiamGia_TextChanged(object sender, EventArgs e)
 		{
+
 			TongHoaDon();
 		}
 		private void txtPhiGiaoHang_TextChanged(object sender, EventArgs e)
@@ -496,7 +492,6 @@ namespace quan_ly_shop_quan_ao
 		{
 			TongHoaDon();
 		}
-		
 		private void btnLoadDon_Click(object sender, EventArgs e)
 		{
 			string s=cbbMau.SelectedValue.ToString();
@@ -505,7 +500,6 @@ namespace quan_ly_shop_quan_ao
 			//string s= MaNhanVienFormShop;
 			//Debug.WriteLine(s);
 		}
-
 		private void xóaToolStripMenuItem_Click(object sender, EventArgs e)
 		{
 			if (lvDS.SelectedItems.Count > 0)
@@ -524,6 +518,25 @@ namespace quan_ly_shop_quan_ao
 				}
 				
 			}
+		}
+		private void txtGiamGia_KeyPress(object sender, KeyPressEventArgs e)
+		{
+			KhongDuocNhapChu(e);
+		}
+		void KhongDuocNhapChu(KeyPressEventArgs e)
+		{
+			if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
+			{
+				e.Handled = true; // Ngăn không cho nhập ký tự
+			}
+		}
+		private void txtPhiGiaoHang_KeyPress(object sender, KeyPressEventArgs e)
+		{
+			KhongDuocNhapChu(e);
+		}
+		private void txtThueVAT_KeyPress(object sender, KeyPressEventArgs e)
+		{
+			KhongDuocNhapChu(e);
 		}
 	}
 }

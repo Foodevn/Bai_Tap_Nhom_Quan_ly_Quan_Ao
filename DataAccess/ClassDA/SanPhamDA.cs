@@ -27,6 +27,7 @@ namespace DataAccess.ClassDA
                 sanPham.TenSP = reader["TenSP"].ToString();
                 sanPham.GiaBan = Convert.ToSingle(reader["GiaBan"]);
                 sanPham.GiamGia = Convert.ToSingle(reader["GiamGia"]);
+                sanPham.GiaNhap = Convert.ToSingle(reader["GiaNhap"]);
                 sanPham.SLTon = Convert.ToInt32(reader["SLTon"]);
                 sanPham.NhaCungCap = reader["NhaCungCap"].ToString();
                 sanPham.IDMau = reader["IDMau"].ToString();
@@ -39,7 +40,7 @@ namespace DataAccess.ClassDA
             sqlConn.Close();
             return list;
         }
-        public int Insert_Update_Delete(SanPham sanPham, int action)
+        public string Insert_Update_Delete(SanPham sanPham, int action)
         {
             SqlConnection sqlConn = new SqlConnection(Ultilities.ConnectionString);
             sqlConn.Open();
@@ -55,6 +56,7 @@ namespace DataAccess.ClassDA
             command.Parameters.Add("@TenSP", SqlDbType.NVarChar, 35) .Value = sanPham.TenSP;
             command.Parameters.Add("@GiaBan", SqlDbType.Float) .Value = sanPham.GiaBan;
             command.Parameters.Add("@GiamGia", SqlDbType.Float) .Value = sanPham.GiaBan;
+            command.Parameters.Add("@GiaNhap", SqlDbType.Float) .Value = sanPham.GiaNhap;
             command.Parameters.Add("@SLTon", SqlDbType.Int).Value = sanPham.SLTon;
             command.Parameters.Add("@NhaCungCap", SqlDbType.NVarChar, 35).Value = sanPham.NhaCungCap;
             command.Parameters.Add("@IDMau", SqlDbType.NVarChar, 10).Value = sanPham.IDMau;
@@ -66,8 +68,8 @@ namespace DataAccess.ClassDA
 
             int result = command.ExecuteNonQuery();
             if (result > 0) // Nếu thành công thì trả về ID đã thêm
-                return (int)command.Parameters["@MaSP"].Value;
-            return 0;
+                return (string)command.Parameters["@MaSP"].Value;
+            return "";
         }
     }
 }

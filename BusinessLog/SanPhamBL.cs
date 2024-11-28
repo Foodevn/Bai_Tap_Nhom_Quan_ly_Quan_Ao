@@ -15,17 +15,18 @@ namespace BusinessLog
         {
             return SanPhamDA.GetAll();
         }
-        public int Insert(SanPham sanPham)
+        public string Insert(SanPham sanPham)
         {
             return SanPhamDA.Insert_Update_Delete(sanPham, 0);
         }
-        public int Update(SanPham sanPham)
+        public string Update(SanPham sanPham)
         {
             return SanPhamDA.Insert_Update_Delete(sanPham, 1);
         }
-        public int Delete(SanPham sanPham)
+        public string Delete(SanPham sanPham)
         {
             return SanPhamDA.Insert_Update_Delete(sanPham, 2);
         }
+
     }
 }

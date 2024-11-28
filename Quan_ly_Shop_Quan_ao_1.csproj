@@ -121,10 +121,10 @@
     <Compile Include="Forms\Lapphieunhaphangmoi.Designer.cs">
       <DependentUpon>Lapphieunhaphangmoi.cs</DependentUpon>
     </Compile>
-    <Compile Include="test.cs">
+    <Compile Include="New folder\test.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="test.Designer.cs">
+    <Compile Include="New folder\test.Designer.cs">
       <DependentUpon>test.cs</DependentUpon>
     </Compile>
     <Compile Include="ThemeColor.cs" />
@@ -203,7 +203,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="test.resx">
+    <EmbeddedResource Include="New folder\test.resx">
       <DependentUpon>test.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Themmathangmoi.resx">
@@ -255,5 +255,6 @@
       <Name>DataAccess</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -46,10 +46,14 @@ namespace DataAccess
         public static string NhomMatHang_InsertUpdateDelete = "NhomMatHang_InsertUpdateDelete";
 
         // Các biến của bảng Food  
-        public static string _GetAll = "_GetAll";
+        public static string RoleNhanVien_GetAll = "RoleNhanVien_GetAll";
+		public static string RoleNhanVien_InsertUpdateDelete = "RoleNhanVien_InsertUpdateDelete";
+
+		// Các biến của bảng Food  
+		public static string _GetAll = "_GetAll";
 		public static string _InsertUpdateDelete = "_InsertUpdateDelete";
-		
-		
+
+
 
 	}
 }

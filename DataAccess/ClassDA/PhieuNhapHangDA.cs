@@ -29,8 +29,12 @@ namespace DataAccess.ClassDA
 				PhieuNhapHang chiTietHoaDon = new PhieuNhapHang();
 				chiTietHoaDon.MaPhieuNhap = reader["MaPhieuNhap"].ToString();
 				chiTietHoaDon.NgayNhap =Convert.ToDateTime( reader["NgayNhap"]);
-				chiTietHoaDon.NhaCungCap = reader["NhaCungCap"].ToString();
 				chiTietHoaDon.MaNhanVien = reader["MaNhanVien"].ToString();
+				chiTietHoaDon.NguonHang = reader["NguonHang"].ToString();
+				chiTietHoaDon.TongTienHang = Convert.ToSingle(reader["TongTienHang"]);
+				chiTietHoaDon.CacPhiKhac = Convert.ToSingle(reader["CacPhiKhac"]);
+				chiTietHoaDon.PhiVanChuyen = Convert.ToSingle(reader["PhiVanChuyen"]);
+				chiTietHoaDon.GhiChu = reader["GhiChu"].ToString();
 				chiTietHoaDon.Enable = Convert.ToInt32(reader["Enable"]);
 				list.Add(chiTietHoaDon);
 
@@ -53,8 +57,13 @@ namespace DataAccess.ClassDA
 			IDPara.Direction = ParameterDirection.InputOutput;
 			command.Parameters.Add(IDPara).Value = phieuNhapHang.MaPhieuNhap;
 			command.Parameters.Add("@NgayNhap", SqlDbType.Date).Value = phieuNhapHang.NgayNhap;
-			command.Parameters.Add("@NhaCungCap", SqlDbType.NVarChar,35).Value = phieuNhapHang.NhaCungCap;
 			command.Parameters.Add("@MaNhanVien", SqlDbType.Char,10).Value = phieuNhapHang.MaNhanVien;
+			command.Parameters.Add("@NguonHang", SqlDbType.NVarChar,50).Value = phieuNhapHang.NguonHang;
+			command.Parameters.Add("@TongTienHang", SqlDbType.Float).Value = phieuNhapHang.TongTienHang;
+			command.Parameters.Add("@CacPhiKhac", SqlDbType.Float).Value = phieuNhapHang.CacPhiKhac;
+			command.Parameters.Add("@PhiVanChuyen", SqlDbType.Float).Value = phieuNhapHang.PhiVanChuyen;
+			command.Parameters.Add("@ThueVat", SqlDbType.Float).Value = phieuNhapHang.ThueVat;
+			command.Parameters.Add("@GhiChu", SqlDbType.NVarChar,50).Value = phieuNhapHang.GhiChu;
 			command.Parameters.Add("@Enable", SqlDbType.Int).Value = phieuNhapHang.Enable;
 			command.Parameters.Add("@Action", SqlDbType.Int).Value = action;
 

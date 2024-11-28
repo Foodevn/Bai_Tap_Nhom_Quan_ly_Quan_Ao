@@ -50,6 +50,7 @@
     <Compile Include="ClassDA\NhanVienDA.cs" />
     <Compile Include="ClassDA\NhomMatHangDA.cs" />
     <Compile Include="ClassDA\PhieuNhapHangDA.cs" />
+    <Compile Include="ClassDA\RoleNhanVienDA.cs" />
     <Compile Include="ClassDA\SanPhamDA.cs" />
     <Compile Include="ClassDA\SizeDA.cs" />
     <Compile Include="Class\ChiTietHoaDon.cs" />
@@ -60,6 +61,7 @@
     <Compile Include="Class\NhanVien.cs" />
     <Compile Include="Class\NhomMatHang.cs" />
     <Compile Include="Class\PhieuNhapHang.cs" />
+    <Compile Include="Class\RoleNhanVien.cs" />
     <Compile Include="Class\SanPham.cs" />
     <Compile Include="Class\Size.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
